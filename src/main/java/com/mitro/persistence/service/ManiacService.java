@@ -5,7 +5,6 @@
  */
 package com.mitro.persistence.service;
 
-import com.mitro.facade.stub.GuitarOwnerStub;
 import com.mitro.persistence.entities.GuitarOwner;
 import java.util.List;
 import javax.ejb.Local;

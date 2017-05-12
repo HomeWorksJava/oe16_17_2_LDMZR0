@@ -28,14 +28,15 @@ public class ManiacServiceImpl implements ManiacService{
     
     @Override
     public List<GuitarOwner> readAllManiacs() throws PersistenceException {
+        LOGGER.info("List all of maniacs.");
+        List<GuitarOwner> owners = null;
         try {
-            LOGGER.info("List all of maniacs.");
-            List<GuitarOwner> owners = this.entityManager.createNamedQuery(OwnerQuery.GET_ALL, GuitarOwner.class).getResultList();
-            return owners;
+            owners = this.entityManager.createNamedQuery(OwnerQuery.GET_ALL, GuitarOwner.class).getResultList();
         } catch (Exception e) {
             LOGGER.info("Error occured at fetching the Owners ...\n" + e.getLocalizedMessage());
+            throw new PersistenceException("Error occured at fetching the Owners ...\n" + e.getLocalizedMessage());
         }
-        return null;
+        return owners;
     }
     
 }

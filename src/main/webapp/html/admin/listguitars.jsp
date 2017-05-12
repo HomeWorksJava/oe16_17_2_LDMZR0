@@ -25,7 +25,8 @@
                         serial: <c:out value="${guitar.serialNumber}"/><br>
                         color: <c:out value="${guitar.color}"/><br>
                         vintage: <c:out value="${guitar.vintage}"/><br>
-                        price: <c:out value="${guitar.price}"/> Ft
+                        price: <c:out value="${guitar.price}"/> Ft<br>
+                        owner: <c:out value="${guitar.owner.username}"/>
 	            </td>
 	        </tr>
 	    </c:forEach>

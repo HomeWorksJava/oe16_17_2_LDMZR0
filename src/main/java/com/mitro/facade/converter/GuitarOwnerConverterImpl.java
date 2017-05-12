@@ -18,9 +18,9 @@ public class GuitarOwnerConverterImpl implements GuitarOwnerConverter {
 
     @Override
     public GuitarOwnerStub to(GuitarOwner guitarOwner) {
-            GuitarOwnerStub guitarOwnerStub = new GuitarOwnerStub(guitarOwner.getOwnerUsername(),
-                            guitarOwner.getOwnerEmail(), guitarOwner.getOwnerPassword());
-            return guitarOwnerStub;
+        GuitarOwnerStub guitarOwnerStub = new GuitarOwnerStub(guitarOwner.getOwnerUsername(), 
+                guitarOwner.getOwnerEmail(), guitarOwner.getOwnerPassword());
+        return guitarOwnerStub;
     }
 
 }
