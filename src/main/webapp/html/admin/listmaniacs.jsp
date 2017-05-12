@@ -6,11 +6,10 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
-<%--<%@ page import="com.mitro.stub.LotteryManiacStub" %>--%>
-<%@ page import="com.mitro.entities.LotteryManiac" %>
-<%@ page import="com.mitro.entities.Tip" %>
+<%@ page import="com.mitro.facade.stub.GuitarOwnerStub" %>
+<%@ page import="com.mitro.facade.stub.GuitarStub" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<% List<LotteryManiac> maniacs = (List<LotteryManiac>) request.getAttribute("maniacs"); %>
+<% List<GuitarOwnerStub> maniacs = (List<GuitarOwnerStub>) request.getAttribute("maniacs"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,10 +25,14 @@
 	        </tr>  
 	        <tr>
 	            <td>                         
-                        <p><c:forEach items="${maniac.tips}" var = "tip">
-                            - tip numbers: <c:out value="${tip.numbersOfTip}"/><br>
-                            - tip date: <c:out value="${tip.timeOfTip}"/>                           
-                            </c:forEach></p>
+                        <p><c:forEach items="${maniac.guitars}" var = "guitar">
+                            guitar brand: <c:out value="${guitar.guitarbrand}"/><br>
+                            guitar type: <c:out value="${guitar.guitartype}"/><br>
+                            serial: <c:out value="${guitar.guitarSerialNumber}"/><br>
+                            color: <c:out value="${guitar.guitarColor}"/><br>
+                            vintage: <c:out value="${guitar.guitarVintage}"/><br>
+                            price: <c:out value="${guitar.guitarPrice}"/> Ft                          
+                        </c:forEach></p>
 	            </td>
 	        </tr>
 	    </c:forEach>

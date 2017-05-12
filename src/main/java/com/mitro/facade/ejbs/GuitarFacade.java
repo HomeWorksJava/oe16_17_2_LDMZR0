@@ -21,6 +21,8 @@ public interface GuitarFacade {
 	GuitarStub getGuitar(Long guitarId) throws FacadeException;
 
 	GuitarStub getGuitar(String serial) throws FacadeException;
+        
+        List<GuitarStub> getGuitarsOfOwner(String ownername) throws FacadeException;
 
 	List<GuitarStub> getGuitars() throws FacadeException;
 

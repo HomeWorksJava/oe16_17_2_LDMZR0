@@ -3,21 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mitro.persistence.service;
+package com.mitro.facade.ejbs;
 
+import com.mitro.facade.exception.FacadeException;
 import com.mitro.facade.stub.GuitarOwnerStub;
-import com.mitro.persistence.entities.GuitarOwner;
 import java.util.List;
 import javax.ejb.Local;
-import javax.persistence.PersistenceException;
 
 /**
  *
  * @author hallgato
  */
 @Local
-public interface ManiacService {
+public interface OwnerFacade {
     
-    List<GuitarOwner> readAllManiacs() throws PersistenceException;
+    List<GuitarOwnerStub> getManiacs() throws FacadeException;
     
 }

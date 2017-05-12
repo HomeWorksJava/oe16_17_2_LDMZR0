@@ -5,9 +5,10 @@
  */
 package com.mitro.persistence.service;
 
-import com.mitro.facade.stub.GuitarOwnerStub;
+import com.mitro.persistence.entities.GuitarOwner;
+import com.mitro.persistence.query.OwnerQuery;
 import java.util.List;
-import javax.ejb.EJB;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,8 +24,17 @@ public class ManiacServiceImpl implements ManiacService{
     @PersistenceContext(name = "GuitarManiaPU")
     private EntityManager entityManager;
     
+    private static final Logger LOGGER = Logger.getLogger(ManiacServiceImpl.class.getName());
+    
     @Override
-    public List<GuitarOwnerStub> readAllManiacs() throws PersistenceException {
+    public List<GuitarOwner> readAllManiacs() throws PersistenceException {
+        try {
+            LOGGER.info("List all of maniacs.");
+            List<GuitarOwner> owners = this.entityManager.createNamedQuery(OwnerQuery.GET_ALL, GuitarOwner.class).getResultList();
+            return owners;
+        } catch (Exception e) {
+            LOGGER.info("Error occured at fetching the Owners ...\n" + e.getLocalizedMessage());
+        }
         return null;
     }
     

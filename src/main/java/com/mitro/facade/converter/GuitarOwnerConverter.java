@@ -7,6 +7,7 @@ package com.mitro.facade.converter;
 
 import com.mitro.facade.stub.GuitarOwnerStub;
 import com.mitro.persistence.entities.GuitarOwner;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -17,5 +18,5 @@ import javax.ejb.Local;
 public interface GuitarOwnerConverter {
     
     GuitarOwnerStub to(GuitarOwner guitarOwner);
-    
+    List<GuitarOwnerStub> to(List<GuitarOwner> guitarOwners);
 }

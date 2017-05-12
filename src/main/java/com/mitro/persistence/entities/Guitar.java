@@ -30,10 +30,10 @@ import javax.persistence.SequenceGenerator;
 @Entity
 @Table(name = "guitar")
 @NamedQueries(value = { //
-		@NamedQuery(name = GuitarQuery.GET_BY_ID, query = "SELECT g FROM Guitar g WHERE g.id=:" + GuitarParameter.ID),
-		@NamedQuery(name = GuitarQuery.GET_BY_SERIALNUMBER, query = "SELECT g FROM Guitar g WHERE g.guitarSerialNumber=:"
-				+ GuitarParameter.SERIALNUMBER),
-		@NamedQuery(name = GuitarQuery.GET_ALL, query = "SELECT g FROM Guitar g ORDER BY g.guitarbrand") //
+    @NamedQuery(name = GuitarQuery.GET_BY_ID, query = "SELECT g FROM Guitar g WHERE g.id=:" + GuitarParameter.ID),
+    @NamedQuery(name = GuitarQuery.GET_BY_SERIALNUMBER, query = "SELECT g FROM Guitar g WHERE g.guitarSerialNumber=:" + GuitarParameter.SERIALNUMBER),
+    @NamedQuery(name = GuitarQuery.GET_ALL, query = "SELECT g FROM Guitar g ORDER BY g.guitarbrand"),
+    @NamedQuery(name = GuitarQuery.GET_BY_OWNERNAME, query = "SELECT g FROM Guitar g WHERE g.guitarOwner.ownerUsername=:" + GuitarParameter.OWNERNAME)//
 })
 public class Guitar implements Serializable {
 

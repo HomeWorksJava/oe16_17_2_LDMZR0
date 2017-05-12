@@ -92,4 +92,22 @@ public class GuitarServiceImpl implements GuitarService {
             }
     }
 
+    @Override
+    public List<Guitar> readByOwner(String owner) throws PersistenceException {
+        LOGGER.info("Get guitars of owner.");
+        List<Guitar> guitars = null;
+        try {
+            GuitarOwner ownerentity = this.entityManager.createNamedQuery(OwnerQuery.OWNER_BY_NAME, GuitarOwner.class)
+                                    .setParameter(OwnerParameter.OWNERNAME, owner).getSingleResult();
+            if (ownerentity == null) {
+                LOGGER.info("Error caused at insert of guitar, the given owner does not exist!");
+                throw new PersistenceException("Error caused at insert of guitar, the given owner does not exist!");
+            }
+            guitars = this.entityManager.createNamedQuery(GuitarQuery.GET_BY_OWNERNAME, Guitar.class)
+                    .setParameter(GuitarParameter.OWNERNAME, owner).getResultList();
+        } catch (Exception e) {
+        }
+        return guitars;
+    }
+
 }

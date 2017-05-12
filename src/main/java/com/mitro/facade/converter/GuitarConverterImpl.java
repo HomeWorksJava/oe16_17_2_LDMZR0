@@ -10,6 +10,7 @@ import com.mitro.facade.stub.GuitarOwnerStub;
 import com.mitro.facade.stub.GuitarStub;
 import com.mitro.persistence.entities.Guitar;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -20,20 +21,36 @@ import javax.ejb.Stateless;
 @Stateless
 public class GuitarConverterImpl implements GuitarConverter {
 
-	@EJB
-	GuitarOwnerConverter converter;
+    @EJB
+    GuitarOwnerConverter converter;
+    
+    private static final Logger LOGGER = Logger.getLogger(GuitarConverterImpl.class.getName());
 
-	@Override
-	public GuitarStub to(Guitar guitar) {
-		GuitarBrandStub guitarBrandStub = GuitarBrandStub.valueOf(guitar.getGuitarbrand().toString());
-		GuitarOwnerStub guitarOwnerStub = this.converter.to(guitar.getGuitarOwner());
-		return new GuitarStub(guitarBrandStub, guitar.getGuitartype(), guitar.getGuitarSerialNumber(),
-				guitar.getGuitarColor(), guitar.getGuitarVintage(), guitar.getGuitarPrice(), guitarOwnerStub);
-	}
+    @Override
+    public GuitarStub to(Guitar guitar) {
+        GuitarStub guitarStub = null;
+        try{
+            GuitarBrandStub guitarBrandStub = GuitarBrandStub.valueOf(guitar.getGuitarbrand().toString());
+            GuitarOwnerStub guitarOwnerStub = this.converter.to(guitar.getGuitarOwner());
+            guitarStub = new GuitarStub(guitarBrandStub, guitar.getGuitartype(), guitar.getGuitarSerialNumber(),
+                            guitar.getGuitarColor(), guitar.getGuitarVintage(), guitar.getGuitarPrice(), guitarOwnerStub);
+        } catch(Exception e){
+            LOGGER.info("Error occured at converting a Guitar to GuitarStub ...\n" + e.getLocalizedMessage());
+        }
+        return guitarStub;
+    }
 
     @Override
     public List<GuitarStub> to(List<Guitar> guitars) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<GuitarStub> stubs = null;
+        try {
+            for(Guitar g : guitars){
+                stubs.add(this.to(g));
+            }
+        } catch (Exception e) {
+            LOGGER.info("Error occured at converting a List<Guitar> to List<GuitarStub> ...\n" + e.getLocalizedMessage());
+        }
+        return stubs;
     }
 
 }

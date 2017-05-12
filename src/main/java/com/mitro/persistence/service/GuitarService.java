@@ -15,6 +15,7 @@ import javax.ejb.Local;
 import javax.persistence.PersistenceException;
 
 import com.mitro.persistence.entities.Guitar;
+import com.mitro.persistence.entities.GuitarOwner;
 
 @Local
 public interface GuitarService {
@@ -22,6 +23,8 @@ public interface GuitarService {
 	Guitar read(Long id) throws PersistenceException;
 
 	Guitar readBySerialNumber(String serialNumber) throws PersistenceException;
+        
+        List<Guitar> readByOwner(String owner) throws PersistenceException;
 
 	List<Guitar> readAll() throws PersistenceException;
 

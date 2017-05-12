@@ -13,5 +13,6 @@ public class GuitarParameter {
 
 	public static final String ID = "id";
 	public static final String SERIALNUMBER = "serialnumber";
-
+        public static final String OWNERNAME = "ownername";
+        
 }

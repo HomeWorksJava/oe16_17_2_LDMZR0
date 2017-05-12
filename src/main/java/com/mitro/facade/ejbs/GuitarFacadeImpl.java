@@ -6,10 +6,13 @@
 package com.mitro.facade.ejbs;
 
 import com.mitro.facade.converter.GuitarConverter;
+import com.mitro.facade.converter.GuitarOwnerConverter;
 import com.mitro.facade.exception.FacadeException;
 import com.mitro.facade.stub.GuitarInputStub;
+import com.mitro.facade.stub.GuitarOwnerStub;
 import com.mitro.facade.stub.GuitarStub;
 import com.mitro.persistence.entities.Guitar;
+import com.mitro.persistence.entities.GuitarOwner;
 import com.mitro.persistence.service.GuitarService;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +31,13 @@ public class GuitarFacadeImpl implements GuitarFacade {
     private static final Logger LOGGER = Logger.getLogger(GuitarFacadeImpl.class.getName());
 
     @EJB
-    private GuitarService guitarService;
+    GuitarService guitarService;
+    
     @EJB
-    private GuitarConverter guitarConverter;
+    GuitarConverter guitarConverter;
+    
+    @EJB
+    GuitarOwnerConverter ownerConverter;
 
     @Override
     public GuitarStub getGuitar(Long guitarId) throws FacadeException {
@@ -84,6 +91,17 @@ public class GuitarFacadeImpl implements GuitarFacade {
                     LOGGER.info("Unknown error caused at add process.");
                     throw new FacadeException("Unknown error caused at add process. " + e.getLocalizedMessage());
             }
+    }
+
+    @Override
+    public List<GuitarStub> getGuitarsOfOwner(String ownerName) throws FacadeException {
+        List<GuitarStub> guitars = null;
+        try {
+            guitars = this.guitarConverter.to(this.guitarService.readByOwner(ownerName));
+        } catch (Exception e) {
+            LOGGER.info("Error occured at fetching the Guitars by Owner: (" + ownerName + ") ...\n" + e.getLocalizedMessage());
+        }
+        return guitars;
     }
 
 }

@@ -12,5 +12,6 @@ package com.mitro.persistence.query;
 public class OwnerQuery {
 
 	public static final String OWNER_BY_NAME = "Owner.getByName";
+        public static final String GET_ALL = "Owner.getAll";
 
 }
