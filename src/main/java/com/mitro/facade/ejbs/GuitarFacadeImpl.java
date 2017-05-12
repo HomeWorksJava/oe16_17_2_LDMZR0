@@ -9,10 +9,8 @@ import com.mitro.facade.converter.GuitarConverter;
 import com.mitro.facade.converter.GuitarOwnerConverter;
 import com.mitro.facade.exception.FacadeException;
 import com.mitro.facade.stub.GuitarInputStub;
-import com.mitro.facade.stub.GuitarOwnerStub;
 import com.mitro.facade.stub.GuitarStub;
 import com.mitro.persistence.entities.Guitar;
-import com.mitro.persistence.entities.GuitarOwner;
 import com.mitro.persistence.service.GuitarService;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +29,9 @@ public class GuitarFacadeImpl implements GuitarFacade {
     private static final Logger LOGGER = Logger.getLogger(GuitarFacadeImpl.class.getName());
 
     @EJB
-    GuitarService guitarService;
-    
+    private GuitarService guitarService;
     @EJB
-    GuitarConverter guitarConverter;
-    
-    @EJB
-    GuitarOwnerConverter ownerConverter;
+    private GuitarConverter guitarConverter;
 
     @Override
     public GuitarStub getGuitar(Long guitarId) throws FacadeException {
@@ -46,7 +40,7 @@ public class GuitarFacadeImpl implements GuitarFacade {
             try {
                     guitar = this.guitarConverter.to(this.guitarService.read(guitarId));
             } catch (PersistenceException e) {
-                    LOGGER.info("Error occured at fetching the Guitar by id: (" + guitarId + ") ...\n" + e.getLocalizedMessage());
+                    LOGGER.info("Error occured at fetching of guitar." + e.getLocalizedMessage());
                     throw new FacadeException(e.getLocalizedMessage());
             }
             return guitar;
@@ -62,7 +56,7 @@ public class GuitarFacadeImpl implements GuitarFacade {
                             guitarStubs.add(this.guitarConverter.to(g));
                     }
             } catch (PersistenceException e) {
-                    LOGGER.info("Error occured at fetching the Guitars ...\n" + e.getLocalizedMessage());
+                    LOGGER.info("Error occured at fetching all of guitars." + e.getLocalizedMessage());
                     throw new FacadeException(e.getLocalizedMessage());
             }
             return guitarStubs;
@@ -75,7 +69,7 @@ public class GuitarFacadeImpl implements GuitarFacade {
             try {
                     guitar = this.guitarConverter.to(this.guitarService.readBySerialNumber(serial));
             } catch (PersistenceException e) {
-                    LOGGER.info("Error occured at fetching the Guitar by serial: (" + serial + ") ...\n" + e.getLocalizedMessage());
+                    LOGGER.info("Error occured at fetching of guitar." + e.getLocalizedMessage());
                     throw new FacadeException(e.getLocalizedMessage());
             }
             return guitar;
@@ -91,17 +85,6 @@ public class GuitarFacadeImpl implements GuitarFacade {
                     LOGGER.info("Unknown error caused at add process.");
                     throw new FacadeException("Unknown error caused at add process. " + e.getLocalizedMessage());
             }
-    }
-
-    @Override
-    public List<GuitarStub> getGuitarsOfOwner(String ownerName) throws FacadeException {
-        List<GuitarStub> guitars = null;
-        try {
-            guitars = this.guitarConverter.to(this.guitarService.readByOwner(ownerName));
-        } catch (Exception e) {
-            LOGGER.info("Error occured at fetching the Guitars by Owner: (" + ownerName + ") ...\n" + e.getLocalizedMessage());
-        }
-        return guitars;
     }
 
 }

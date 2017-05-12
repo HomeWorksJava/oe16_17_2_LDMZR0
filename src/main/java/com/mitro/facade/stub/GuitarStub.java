@@ -9,91 +9,93 @@ package com.mitro.facade.stub;
  *
  * @author hallgato
  */
-public class GuitarStub {    
+public class GuitarStub {
 
     private GuitarBrandStub guitarbrand;
-    private String guitarSerialNumber;
-    private String guitartype;
-    private String guitarColor;
-    private int guitarVintage;
-    private double guitarPrice;
-    private GuitarOwnerStub guitarOwner;
+    private String guitarType;
+    private String serialNumber;
+    private String color;
+    private int vintage;
+    private double price;
+    private GuitarOwnerStub owner;
 
     public GuitarStub() {
+            super();
     }
 
-    public GuitarStub(GuitarBrandStub guitarbrand, String guitartype, String guitarSerialNumber, String guitarColor, int guitarVintage, 
-            double guitarPrice, GuitarOwnerStub guitarOwner) {
-        this.guitarbrand = guitarbrand;
-        this.guitarSerialNumber = guitarSerialNumber;
-        this.guitartype = guitartype;
-        this.guitarColor = guitarColor;
-        this.guitarVintage = guitarVintage;
-        this.guitarPrice = guitarPrice;
-        this.guitarOwner = guitarOwner;
+    public GuitarStub(GuitarBrandStub guitarbrand, String guitarType, String serialNumber, String color, int vintage,
+                    double price, GuitarOwnerStub owner) {
+            super();
+            this.guitarbrand = guitarbrand;
+            this.guitarType = guitarType;
+            this.serialNumber = serialNumber;
+            this.color = color;
+            this.vintage = vintage;
+            this.price = price;
+            this.owner = owner;
     }
 
     public GuitarBrandStub getGuitarbrand() {
-        return guitarbrand;
+            return this.guitarbrand;
     }
 
     public void setGuitarbrand(GuitarBrandStub guitarbrand) {
-        this.guitarbrand = guitarbrand;
+            this.guitarbrand = guitarbrand;
     }
 
-    public String getGuitarSerialNumber() {
-        return guitarSerialNumber;
+    public String getGuitarType() {
+            return this.guitarType;
     }
 
-    public void setGuitarSerialNumber(String guitarSerialNumber) {
-        this.guitarSerialNumber = guitarSerialNumber;
+    public void setGuitarType(String guitarType) {
+            this.guitarType = guitarType;
     }
 
-    public String getGuitartype() {
-        return guitartype;
+    public String getSerialNumber() {
+            return this.serialNumber;
     }
 
-    public void setGuitartype(String guitartype) {
-        this.guitartype = guitartype;
+    public void setSerialNumber(String serialNumber) {
+            this.serialNumber = serialNumber;
     }
 
-    public String getGuitarColor() {
-        return guitarColor;
+    public String getColor() {
+            return this.color;
     }
 
-    public void setGuitarColor(String guitarColor) {
-        this.guitarColor = guitarColor;
+    public void setColor(String color) {
+            this.color = color;
     }
 
-    public int getGuitarVintage() {
-        return guitarVintage;
+    public int getVintage() {
+            return this.vintage;
     }
 
-    public void setGuitarVintage(int guitarVintage) {
-        this.guitarVintage = guitarVintage;
+    public void setVintage(int vintage) {
+            this.vintage = vintage;
     }
 
-    public double getGuitarPrice() {
-        return guitarPrice;
+    public double getPrice() {
+            return this.price;
     }
 
-    public void setGuitarPrice(double guitarPrice) {
-        this.guitarPrice = guitarPrice;
+    public void setPrice(double price) {
+            this.price = price;
     }
 
-    public GuitarOwnerStub getGuitarOwner() {
-        return guitarOwner;
+    public GuitarOwnerStub getOwner() {
+            return this.owner;
     }
 
-    public void setGuitarOwner(GuitarOwnerStub guitarOwner) {
-        this.guitarOwner = guitarOwner;
+    public void setOwner(GuitarOwnerStub owner) {
+            this.owner = owner;
     }
 
     @Override
     public String toString() {
-        return "GuitarStub{" + "guitarbrand=" + guitarbrand + ", guitarSerialNumber=" + guitarSerialNumber + ", guitartype=" + guitartype + ", guitarColor=" + guitarColor + ", guitarVintage=" + guitarVintage + ", guitarPrice=" + guitarPrice + ", guitarOwner=" + guitarOwner + '}';
+            return "GuitarStub [guitarbrand=" + this.guitarbrand + ", guitarType=" + this.guitarType + ", serialNumber="
+                            + this.serialNumber + ", color=" + this.color + ", vintage=" + this.vintage + ", price=" + this.price
+                            + ", owner=" + this.owner + "]";
     }
-    
-    
-   
+
 }

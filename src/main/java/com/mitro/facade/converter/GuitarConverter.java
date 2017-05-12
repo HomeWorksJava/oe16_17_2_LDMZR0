@@ -7,7 +7,6 @@ package com.mitro.facade.converter;
 
 import com.mitro.facade.stub.GuitarStub;
 import com.mitro.persistence.entities.Guitar;
-import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -17,7 +16,6 @@ import javax.ejb.Local;
 @Local
 public interface GuitarConverter {
     
-    public GuitarStub to(Guitar guitar);
-    public List<GuitarStub> to(List<Guitar> guitars);
+    GuitarStub to(Guitar guitar);
     
 }

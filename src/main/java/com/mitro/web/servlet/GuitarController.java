@@ -34,7 +34,7 @@ public class GuitarController extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
                     throws ServletException, IOException {
-            LOGGER.info("Get Guitars");
+            LOGGER.info("Get Guitars (in servlet)");
             List<GuitarStub> guitars = null;
             try {
                     guitars = this.facade.getGuitars();

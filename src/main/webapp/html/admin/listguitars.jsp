@@ -18,14 +18,14 @@
 <%-- 		<%=guitars%> --%>
 	    <c:forEach items="${guitars}" var="guitar">
 	        <tr>
-	            <td><h4><c:out value="${guitar.guitarbrand}"/>: <c:out value="${guitar.guitartype}"/></h4></td>
+	            <td><h4><c:out value="${guitar.guitarbrand}"/>: <c:out value="${guitar.guitarType}"/></h4></td>
 	        </tr>  
 	        <tr>
 	            <td>
-                        serial: <c:out value="${guitar.guitarSerialNumber}"/><br>
-                        color: <c:out value="${guitar.guitarColor}"/><br>
-                        vintage: <c:out value="${guitar.guitarVintage}"/><br>
-                        price: <c:out value="${guitar.guitarPrice}"/> Ft
+                        serial: <c:out value="${guitar.serialNumber}"/><br>
+                        color: <c:out value="${guitar.color}"/><br>
+                        vintage: <c:out value="${guitar.vintage}"/><br>
+                        price: <c:out value="${guitar.price}"/> Ft
 	            </td>
 	        </tr>
 	    </c:forEach>

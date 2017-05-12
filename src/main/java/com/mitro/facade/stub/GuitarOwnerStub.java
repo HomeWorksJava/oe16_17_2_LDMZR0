@@ -12,52 +12,45 @@ import java.util.List;
  * @author hallgato
  */
 public class GuitarOwnerStub {
-    
-    private String name;
-    private String email;
-    private List<GuitarStub> guitars;
 
-    public GuitarOwnerStub() {
-    }
+	private String username;
+	private String email;
+	private String password;
 
-    public GuitarOwnerStub(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
+	public GuitarOwnerStub(String username, String email, String password) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
 
-    public GuitarOwnerStub(String name, String email, List<GuitarStub> guitars) {
-        this.name = name;
-        this.email = email;
-        this.guitars = guitars;
-    }
+	public String getUsername() {
+		return this.username;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getEmail() {
+		return this.email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getPassword() {
+		return this.password;
+	}
 
-    public List<GuitarStub> getGuitars() {
-        return guitars;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setGuitars(List<GuitarStub> guitars) {
-        this.guitars = guitars;
-    }
+	@Override
+	public String toString() {
+		return "GuitarOwnerStub [usename=" + this.username + ", email=" + this.email + "]";
+	}
 
-    @Override
-    public String toString() {
-        return "GuitarOwnerStub{" + "name=" + name + ", email=" + email + ", guitars=" + guitars + '}';
-    }
-    
 }

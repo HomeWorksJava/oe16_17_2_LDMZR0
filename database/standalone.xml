@@ -443,8 +443,6 @@
     </socket-binding-group>
 
     <deployments>
-        <deployment name="LotteryMania-1.0-SNAPSHOT.war" runtime-name="LotteryMania-1.0-SNAPSHOT.war">
-            <content sha1="7d1cdc376c1d5a4344c5595e0be075372cb2f1e6"/>
-        </deployment>
+        
     </deployments>
 </server>

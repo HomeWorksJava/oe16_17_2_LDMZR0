@@ -18,5 +18,5 @@ import javax.ejb.Local;
 public interface GuitarOwnerConverter {
     
     GuitarOwnerStub to(GuitarOwner guitarOwner);
-    List<GuitarOwnerStub> to(List<GuitarOwner> guitarOwners);
+    //List<GuitarOwnerStub> to(List<GuitarOwner> guitarOwners);
 }
