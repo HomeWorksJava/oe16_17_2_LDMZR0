@@ -21,7 +21,10 @@
         <table>
 	    <c:forEach items="${maniacs}" var="maniac">
 	        <tr>
-                    <td><p><h4>Name: <c:out value="${maniac.username}"/>: <c:out value="${maniac.email}"/></h4></p></td>
+                    <td>
+                        <h4>Name: <c:out value="${maniac.username}"/></h4>
+                        <h5>email: <c:out value="${maniac.email}"/></h5>
+                    </td>
 	        </tr>
 	    </c:forEach>
 	</table>

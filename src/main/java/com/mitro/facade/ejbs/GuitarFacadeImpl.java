@@ -6,7 +6,6 @@
 package com.mitro.facade.ejbs;
 
 import com.mitro.facade.converter.GuitarConverter;
-import com.mitro.facade.converter.GuitarOwnerConverter;
 import com.mitro.facade.exception.FacadeException;
 import com.mitro.facade.stub.GuitarInputStub;
 import com.mitro.facade.stub.GuitarStub;

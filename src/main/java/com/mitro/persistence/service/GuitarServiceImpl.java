@@ -86,6 +86,7 @@ public class GuitarServiceImpl implements GuitarService {
                     GuitarBrand brand = GuitarBrand.valueOf(guitarBrand);
                     guitar = new Guitar(brand, serialNumber, guitarType, color, vintage, price, owner);
                     this.entityManager.merge(guitar);
+                    this.entityManager.flush();
             } catch (Exception e) {
                     LOGGER.info("Unknown error caused at insert of guitar!");
                     throw new PersistenceException("Unknown error caused at insert of guitar. " + e.getLocalizedMessage());

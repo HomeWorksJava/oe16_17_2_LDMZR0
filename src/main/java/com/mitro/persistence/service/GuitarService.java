@@ -10,12 +10,9 @@ package com.mitro.persistence.service;
  * @author Mitró Tamás
  */
 import java.util.List;
-
 import javax.ejb.Local;
 import javax.persistence.PersistenceException;
-
 import com.mitro.persistence.entities.Guitar;
-import com.mitro.persistence.entities.GuitarOwner;
 
 @Local
 public interface GuitarService {
