@@ -4,12 +4,12 @@
     Author     : hallgato
 --%>
 
+<%@page import="java.util.Set"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.List" %>
 <%@ page import="com.mitro.facade.stub.GuitarOwnerStub" %>
 <%@ page import="com.mitro.facade.stub.GuitarStub" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<% List<GuitarOwnerStub> maniacs = (List<GuitarOwnerStub>) request.getAttribute("maniacs"); %>
+<% Set<GuitarOwnerStub> maniacs = (Set<GuitarOwnerStub>) request.getAttribute("maniacs"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,19 +21,7 @@
         <table>
 	    <c:forEach items="${maniacs}" var="maniac">
 	        <tr>
-                    <td><p><h4>Name: <c:out value="${maniac.maniacName}"/>:</h4></p></td>
-	        </tr>  
-	        <tr>
-	            <td>                         
-                        <p><c:forEach items="${maniac.guitars}" var = "guitar">
-                            guitar brand: <c:out value="${guitar.guitarbrand}"/><br>
-                            guitar type: <c:out value="${guitar.guitartype}"/><br>
-                            serial: <c:out value="${guitar.guitarSerialNumber}"/><br>
-                            color: <c:out value="${guitar.guitarColor}"/><br>
-                            vintage: <c:out value="${guitar.guitarVintage}"/><br>
-                            price: <c:out value="${guitar.guitarPrice}"/> Ft                          
-                        </c:forEach></p>
-	            </td>
+                    <td><p><h4>Name: <c:out value="${maniac.username}"/>: <c:out value="${maniac.email}"/></h4></p></td>
 	        </tr>
 	    </c:forEach>
 	</table>

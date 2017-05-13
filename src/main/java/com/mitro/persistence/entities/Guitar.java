@@ -154,7 +154,7 @@ public class Guitar implements Serializable {
 		return "Guitar [id=" + this.id + ", guitarbrand=" + this.guitarbrand + ", guitarSerialNumber="
 				+ this.guitarSerialNumber + ", guitartype=" + this.guitartype + ", guitarColor=" + this.guitarColor
 				+ ", guitarVintage=" + this.guitarVintage + ", guitarPrice=" + this.guitarPrice + ", guitarOwner="
-				+ this.guitarOwner + "]";
+				+ this.guitarOwner.getOwnerUsername() + "]";
 	}
 
 }

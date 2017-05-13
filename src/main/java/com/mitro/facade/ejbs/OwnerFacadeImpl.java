@@ -10,7 +10,9 @@ import com.mitro.facade.exception.FacadeException;
 import com.mitro.facade.stub.GuitarOwnerStub;
 import com.mitro.persistence.entities.GuitarOwner;
 import com.mitro.persistence.service.ManiacService;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -31,8 +33,8 @@ public class OwnerFacadeImpl implements OwnerFacade{
     private static final Logger LOGGER = Logger.getLogger(OwnerFacadeImpl.class.getName());
     
     @Override
-    public List<GuitarOwnerStub> getManiacs() throws FacadeException {
-        List<GuitarOwnerStub> stubs = null;
+    public Set<GuitarOwnerStub> getManiacs() throws FacadeException {
+        Set<GuitarOwnerStub> stubs = new HashSet<GuitarOwnerStub>();
         try {
             List<GuitarOwner> entities = this.service.readAllManiacs();
             for(GuitarOwner go : entities){

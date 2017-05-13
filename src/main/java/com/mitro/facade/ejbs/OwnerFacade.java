@@ -8,6 +8,7 @@ package com.mitro.facade.ejbs;
 import com.mitro.facade.exception.FacadeException;
 import com.mitro.facade.stub.GuitarOwnerStub;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.Local;
 
 /**
@@ -17,6 +18,6 @@ import javax.ejb.Local;
 @Local
 public interface OwnerFacade {
     
-    List<GuitarOwnerStub> getManiacs() throws FacadeException;
+    Set<GuitarOwnerStub> getManiacs() throws FacadeException;
     
 }

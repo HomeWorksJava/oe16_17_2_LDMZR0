@@ -5,12 +5,11 @@
  */
 package com.mitro.web.servlet;
 
-import com.mitro.facade.ejbs.OwnerFacade;
+import com.mitro.facade.ejbs.GuitarFacade;
 import com.mitro.facade.exception.FacadeException;
-import com.mitro.facade.stub.GuitarOwnerStub;
+import com.mitro.facade.stub.GuitarStub;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -24,27 +23,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hallgato
  */
-@WebServlet("/html/admin/Maniacs")
-public class GuitarManiacsController extends HttpServlet{
-    
+@WebServlet("/html/users/Guitars")
+public class GuitarControllerUsers extends HttpServlet{
+
+    private static final Logger LOGGER = Logger.getLogger(GuitarControllerUsers.class.getName());
+
     @EJB
-    private OwnerFacade facade;
-    
-    private static final Logger LOGGER = Logger.getLogger(GuitarManiacsController.class.getName());
-    
+    private GuitarFacade facade;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
                     throws ServletException, IOException {
-            LOGGER.info("Get owners of guitars");
-            Set<GuitarOwnerStub> owners = null;
+            LOGGER.info("Get Guitars (in servlet)");
+            List<GuitarStub> guitars = null;
             try {
-                    owners = this.facade.getManiacs();
-                    request.setAttribute("maniacs", owners);
+                    guitars = this.facade.getGuitars();
+                    request.setAttribute("guitars", guitars);
             } catch (FacadeException e) {
-                    LOGGER.info("Error occured at fetching the Owners ...\n" + e.getLocalizedMessage());
+                    LOGGER.info("Error occured at fetching the Guitars ...\n" + e.getLocalizedMessage());
             }
-            RequestDispatcher view = request.getRequestDispatcher("/html/admin/listmaniacs.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/html/users/listguitars.jsp");
             view.include(request, response);
     }
-    
 }

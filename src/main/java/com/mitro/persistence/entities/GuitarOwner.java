@@ -27,7 +27,7 @@ import javax.persistence.OneToMany;
 @Table(name = "guitarowner")
 @NamedQueries(value = {
     @NamedQuery(name = OwnerQuery.OWNER_BY_NAME, query = "SELECT o FROM GuitarOwner o WHERE o.ownerUsername=:" + OwnerParameter.OWNERNAME),
-    @NamedQuery(name = OwnerQuery.GET_ALL, query = "SELECT o FROM GuitarOwner o ORDER BY o.ownerUsername")
+    @NamedQuery(name = OwnerQuery.GET_ALL, query = "SELECT o FROM GuitarOwner o JOIN FETCH o.guitars ORDER BY o.ownerUsername")
 })
 public class GuitarOwner implements Serializable {
 

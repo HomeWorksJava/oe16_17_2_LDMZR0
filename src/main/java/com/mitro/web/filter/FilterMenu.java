@@ -121,7 +121,7 @@ public class FilterMenu implements Filter {
                 menuItems.add(new MenuItem("Exit", "#"));
                 
             }else {
-                menuItems.add(new MenuItem("Guitar Maniacs", "/guitarmania/html/admin/Guitars"));
+                menuItems.add(new MenuItem("Guitars", "/guitarmania/html/users/Guitars"));
                 menuItems.add(new MenuItem("Get A Guitar", "#"));
                 menuItems.add(new MenuItem("Exit", "#"));
             }

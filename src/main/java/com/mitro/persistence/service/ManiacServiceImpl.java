@@ -32,6 +32,7 @@ public class ManiacServiceImpl implements ManiacService{
         List<GuitarOwner> owners = null;
         try {
             owners = this.entityManager.createNamedQuery(OwnerQuery.GET_ALL, GuitarOwner.class).getResultList();
+            System.out.println(owners);
         } catch (Exception e) {
             LOGGER.info("Error occured at fetching the Owners ...\n" + e.getLocalizedMessage());
             throw new PersistenceException("Error occured at fetching the Owners ...\n" + e.getLocalizedMessage());
